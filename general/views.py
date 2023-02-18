@@ -1,3 +1,5 @@
+import math
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 
@@ -19,5 +21,20 @@ zodiac_dict = {
 }
 
 
+def zodiak_searcher(request, zodiac):
+    for key in zodiac_dict:
+        if zodiac in key:
+            return HttpResponse(zodiac_dict[key])
+    return HttpResponseNotFound(f"{zodiac} -Мы не знаем такого знака зодиака (((((")
+
+
 def area_rectangle(request, width, height):
     return HttpResponse(f"Площадь прямоугольника размером {width} x {height} равна {width * height}")
+
+
+def area_square(request, width):
+    return HttpResponse(f"Площадь квадрата размером {width} x {width} равна {width * width}")
+
+
+def area_circle(request, radius):
+    return HttpResponse(f"Площадь круга с радиусом {radius} равна  {math.pi * math.pow(radius, 2)}")
