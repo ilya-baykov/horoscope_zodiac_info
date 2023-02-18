@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 zodiac_dict = {
@@ -22,4 +22,4 @@ def zodiak_searcher(request, zodiac):
     if zodiac_dict.get(zodiac, 0):
         return HttpResponse(zodiac_dict[zodiac])
     else:
-        return HttpResponse(f"{zodiac} -Мы не знаем такого знака зодиака (((((")
+        return HttpResponseNotFound(f"{zodiac} -Мы не знаем такого знака зодиака (((((")
