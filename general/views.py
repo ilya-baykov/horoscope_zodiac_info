@@ -19,8 +19,5 @@ zodiac_dict = {
 }
 
 
-def zodiak_searcher(request, zodiac):
-    for key in zodiac_dict:
-        if zodiac in key:
-            return HttpResponse(zodiac_dict[key])
-    return HttpResponseNotFound(f"{zodiac} -Мы не знаем такого знака зодиака (((((")
+def area_rectangle(request, width, height):
+    return HttpResponse(f"Площадь прямоугольника размером {width} x {height} равна {width * height}")
